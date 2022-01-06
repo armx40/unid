@@ -16,7 +16,7 @@ var uintProcessUnique = readRandomBytes(6)
 func get64BitRandomNumber() uint64 {
 
 	var rand_number uint64
-	rand_bytes := []byte{}
+	rand_bytes := make([]byte, 8)
 
 	_, err := rand.Read(rand_bytes)
 
@@ -25,13 +25,13 @@ func get64BitRandomNumber() uint64 {
 	}
 
 	rand_number = (uint64(rand_bytes[0]) << 56) |
-		(uint64(rand_bytes[0]) << 48) |
-		(uint64(rand_bytes[0]) << 40) |
-		(uint64(rand_bytes[0]) << 32) |
-		(uint64(rand_bytes[0]) << 24) |
-		(uint64(rand_bytes[0]) << 16) |
-		(uint64(rand_bytes[0]) << 8) |
-		(uint64(rand_bytes[0]) << 0)
+		(uint64(rand_bytes[1]) << 48) |
+		(uint64(rand_bytes[2]) << 40) |
+		(uint64(rand_bytes[3]) << 32) |
+		(uint64(rand_bytes[4]) << 24) |
+		(uint64(rand_bytes[5]) << 16) |
+		(uint64(rand_bytes[6]) << 8) |
+		(uint64(rand_bytes[7]) << 0)
 
 	return rand_number
 }
