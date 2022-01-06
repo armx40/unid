@@ -52,7 +52,7 @@ func getUindCounterValue() uint64 {
 	return ret
 }
 
-func getUNID() unid {
+func GetUNID() unid {
 	var b []byte
 
 	log.Println(uintProcessUnique)
